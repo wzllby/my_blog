@@ -16,6 +16,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: lby521...
+    # redis连接配置
   data:
     redis:
       database: 0

@@ -1,8 +1,8 @@
-import React from 'react';
 import { UserOutlined, DownOutlined } from '@ant-design/icons';
 import { Layout, theme, Avatar, Image, Row, Col, Dropdown, Space } from 'antd';
 import MyMenu from '../component/MyMenu';
 import Label from '../component/Label';
+import { Link } from 'react-router-dom';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -10,9 +10,7 @@ const items = [
   {
     key: '1',
     label: (
-      <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-        退出
-      </a>
+      <Link to='/login' rel="noopener noreferrer" >退出</Link>
     ),
   }
 ];

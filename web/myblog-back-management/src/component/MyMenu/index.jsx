@@ -18,6 +18,7 @@ import {
   ToolOutlined
 } from '@ant-design/icons';
 import { Button, Menu } from 'antd';
+import { useNavigate } from 'react-router-dom';
 
 function getItem(label, key, icon, children, type) {
   return {
@@ -52,6 +53,10 @@ const App = () => {
   const toggleCollapsed = () => {
     setCollapsed(!collapsed);
   };
+  const navigate = useNavigate();
+  const handsub = () => {
+    navigate("/main/publish")
+  }
   return (
     <div>
       <Button
@@ -70,6 +75,7 @@ const App = () => {
         theme="dark"
         inlineCollapsed={collapsed}
         items={items}
+        onClick={handsub}
       />
     </div>
   );
