@@ -3,6 +3,7 @@ import { UserOutlined, DownOutlined } from '@ant-design/icons';
 import { Layout, theme, Avatar, Image, Row, Col, Dropdown, Space } from 'antd';
 import MyMenu from '../component/MyMenu';
 import Label from '../component/Label';
+
 const { Header, Content, Footer, Sider } = Layout;
 
 const items = [

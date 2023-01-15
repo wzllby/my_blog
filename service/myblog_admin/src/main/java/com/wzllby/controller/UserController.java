@@ -3,9 +3,8 @@ package com.wzllby.controller;
 import com.wzllby.service.UserService;
 import com.wzllby.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author wzllby
@@ -18,9 +17,12 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private RedisTemplate redisTemplate;
 
-    @RequestMapping("login/{userName}/{passWord}")
-    public User login(@PathVariable("userName")String userName, @PathVariable("passWord")String passWord) {
-        return userService.selectUser(userName, passWord);
+    @PostMapping("login/")
+    public User login(@RequestBody User user) {
+        
+        return userService.selectUser(user.getUserName(), user.getPassWord());
     }
 }
