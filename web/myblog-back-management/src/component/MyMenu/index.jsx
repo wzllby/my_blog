@@ -54,8 +54,8 @@ const App = () => {
     setCollapsed(!collapsed);
   };
   const navigate = useNavigate();
-  const handsub = () => {
-    navigate("/main/publish")
+  const handsub = (dom) => {
+    navigate("/main/artlist")
   }
   return (
     <div>
@@ -73,7 +73,7 @@ const App = () => {
         defaultOpenKeys={['sub1']}
         mode="inline"
         theme="dark"
-        inlineCollapsed={collapsed}
+        // inlineCollapsed={collapsed}
         items={items}
         onClick={handsub}
       />

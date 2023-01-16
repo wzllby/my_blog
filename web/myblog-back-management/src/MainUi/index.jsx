@@ -1,8 +1,7 @@
 import { UserOutlined, DownOutlined } from '@ant-design/icons';
 import { Layout, theme, Avatar, Image, Row, Col, Dropdown, Space } from 'antd';
 import MyMenu from '../component/MyMenu';
-import Label from '../component/Label';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -82,7 +81,7 @@ const App = () => {
               background: colorBgContainer,
             }}
           >
-         <Label />
+         <Outlet></Outlet>
           </div>
         </Content>
         <Footer
