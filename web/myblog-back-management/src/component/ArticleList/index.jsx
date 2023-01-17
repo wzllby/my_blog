@@ -1,17 +1,32 @@
-import { Table } from 'antd';
+import { Table,Space, Button } from 'antd';
+import { useState } from 'react';
 
     const dataSource = [
     {
       key: '1',
-      name: '胡彦斌',
-      age: 32,
-      address: '西湖区湖底公园1号',
+      cover: '',
+      title: 'java入门',
+      class: '西湖区湖底公园1号',
+      babel: 'java',
+      words_num: 699,
+      post_formats: '加密',
+      post_time: '2023-1-15',
+      hot_num: 55,
+      likes_num: 5,
+      state: '原创'
     },
     {
       key: '2',
-      name: '胡彦祖',
-      age: 42,
-      address: '西湖区湖底公园1号',
+      cover: '',
+      title: 'java入门',
+      class: '西湖区湖底公园1号',
+      babel: 'java',
+      words_num: 699,
+      post_formats: '加密',
+      post_time: '2023-1-15',
+      hot_num: 55,
+      likes_num: 5,
+      state: '原创'
     },
   ];
   
@@ -32,14 +47,64 @@ import { Table } from 'antd';
       key: 'class',
     },
     {
-        title: '标签',
-        dataIndex: 'babel',
-        key: 'babel',
+      title: '标签',
+      dataIndex: 'babel',
+      key: 'babel',
+    },
+    {
+      title: '字数',
+      dataIndex: 'words_num',
+      key: 'words_num',
+    },
+    {
+      title: '类型',
+      dataIndex: 'state',
+      key: 'state',
+    },
+    {
+      title: '发布方式',
+      dataIndex: 'post_formats',
+      key: 'post_formats',
+    },
+    {
+      title: '发布时间',
+      dataIndex: 'post_time',
+      key: 'post_time',
+    },
+    {
+      title: '热度',
+      dataIndex: 'hot_num',
+      key: 'hot_num',
+    },
+    {
+      title: '点赞数',
+      dataIndex: 'likes_num',
+      key: 'likes_num',
+    },
+    {
+      title: '操作',
+      key: 'action',
+      render: () => (
+        <Space size="middle">
+          <Button type='primary'>编辑</Button>
+          <Button danger onClick={() => {}}>删除</Button>
+        </Space>
+      ),
     },
   ];
     const App = () => {
+      
+      const [selectedRowKeys, setSelectedRowKeys] = useState([]);
+      const onSelectChange = (newSelectedRowKeys) => {
+        console.log('selectedRowKeys changed: ', newSelectedRowKeys);
+        setSelectedRowKeys(newSelectedRowKeys);
+      };
+      const rowSelection = {
+        selectedRowKeys,
+        onChange: onSelectChange,
+      };
         return (
-            <Table dataSource={dataSource} columns={columns} />
+            <Table rowSelection={rowSelection} dataSource={dataSource} columns={columns} />
         )
     }
 

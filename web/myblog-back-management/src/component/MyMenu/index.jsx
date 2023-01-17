@@ -55,7 +55,17 @@ const App = () => {
   };
   const navigate = useNavigate();
   const handsub = (dom) => {
-    navigate("/main/artlist")
+    console.log(dom);
+    let path = '';
+    switch (dom.key) {
+      case '21': path = '/main/publish';break;
+      case '22': path = '/main/artlist';break;
+      case '23': path = '/main/classList';break;
+      case '24': path = '/main/labelList';break;
+      default:
+        path = '/main/label';
+    }
+    navigate(path)
   }
   return (
     <div>

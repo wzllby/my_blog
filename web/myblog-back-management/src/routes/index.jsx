@@ -3,6 +3,10 @@ import MainUi from '../MainUi'
 import Login from '../Login'
 import Publish from '../Publish'
 import ArticleList from '../component/ArticleList'
+import Label from '../component/Label'
+import LabelList from '../component/BabelList'
+import ClassList from '../component/ClassList'
+
 
 
 const routes = [
@@ -18,6 +22,18 @@ const routes = [
         {
           path: 'artlist',
           element: <ArticleList />
+        },
+        {
+          path: 'label',
+          element: <Label />
+        },
+        {
+          path: 'labelList',
+          element: <LabelList />
+        },
+        {
+          path: 'classList',
+          element: <ClassList />
         }
       ],
     },
@@ -26,8 +42,12 @@ const routes = [
       element: <Login />,
     },
     {
+      path: '/main',
+      element: <Navigate to="/main/label" />,
+    },
+    {
       path: '/',
-      element: <Navigate to="/login" />,
+      element: <Navigate to="/login/logi" />,
     },
   ]
 
