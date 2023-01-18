@@ -1,4 +1,4 @@
-import { Table } from 'antd';
+import { Table, Button, Space } from 'antd';
 import { useState } from 'react';
 
     const dataSource = [
@@ -31,6 +31,16 @@ import { useState } from 'react';
       title: '创建时间',
       dataIndex: 'create_time',
       key: 'create_time',
+    },
+    {
+      title: '操作',
+      key: 'action',
+      render: () => (
+        <Space size="middle">
+          <Button type='primary'>编辑</Button>
+          <Button danger onClick={() => {}}>删除</Button>
+        </Space>
+      ),
     },
   ];
     const App = () => {
