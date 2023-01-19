@@ -1,9 +1,13 @@
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import { Card, Button, Checkbox, Form, Input, Row } from 'antd';
+import { Card, Button, Checkbox, Form, Input, Row, Space } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
 const App = () => {
     const navigate = useNavigate();
+    const [form] = Form.useForm();
+    function resetValue() {
+        form.resetFields();
+    }
     function onFinish(data) {
         // 登录请求
         const {username, password} = data;
@@ -58,18 +62,22 @@ const App = () => {
                 valuePropName="checked" noStyle>
                 <Checkbox>记住我</Checkbox>
                 </Form.Item>
-
-                <a className="login-form-forgot" href="#s">
-                重置密码
-                </a>
             </Form.Item>
 
             <Form.Item>
-                <Button type="primary" 
-                htmlType="submit" 
-                className="login-form-button" >
-                登陆
-                </Button>
+                <Space>
+                    <Button type="primary" 
+                    htmlType="submit" 
+                    className="login-form-button" >
+                    登陆
+                    </Button>
+                    <Button type="primary"
+                    onClick={resetValue}
+                    htmlType="reset"
+                    className="login-form-forgot" >
+                    重置
+                    </Button>
+                </Space>
             </Form.Item>
             </Form>
             </Card>
