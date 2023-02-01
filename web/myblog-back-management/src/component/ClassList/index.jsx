@@ -1,4 +1,4 @@
-import { Table, Button, Space } from 'antd';
+import { Table, Button, Space, Modal, Form, Input } from 'antd';
 import { useState } from 'react';
 
     const dataSource = [
@@ -45,6 +45,7 @@ import { useState } from 'react';
   ];
     const App = () => {
       const [selectedRowKeys, setSelectedRowKeys] = useState([]);
+      const [isModalOpen, setIsModalOpen] = useState(false);
       const onSelectChange = (newSelectedRowKeys) => {
         console.log('selectedRowKeys changed: ', newSelectedRowKeys);
         setSelectedRowKeys(newSelectedRowKeys);
@@ -53,8 +54,32 @@ import { useState } from 'react';
         selectedRowKeys,
         onChange: onSelectChange,
       };
+
+      const showModal = () => {
+        setIsModalOpen(true);
+      };
+      // 发送请求添加分类
+      const handleOk = () => {
+        setIsModalOpen(false);
+      };
+
+      const handleCancel = () => {
+        setIsModalOpen(false);
+      };
         return (
+          <>
+            <Space size='middle'>
+              <Button type="primary" onClick={showModal}>新增</Button>
+            </Space>
             <Table rowSelection={rowSelection} dataSource={dataSource} columns={columns} />
+            <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+              <Form>
+                <Form.Item label="分类名" name="classname">
+                  <Input />
+                </Form.Item>
+              </Form>
+            </Modal>
+          </>
         )
     }
 
