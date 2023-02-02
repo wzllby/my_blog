@@ -72,7 +72,7 @@ import { useState } from 'react';
               <Button type="primary" onClick={showModal}>新增</Button>
             </Space>
             <Table rowSelection={rowSelection} dataSource={dataSource} columns={columns} />
-            <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+            <Modal title="新增分类" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
               <Form>
                 <Form.Item label="分类名" name="classname">
                   <Input />

@@ -1,6 +1,6 @@
 import { Table,Space, Button, Popconfirm, Modal } from 'antd';
 import { useState } from 'react';
-import Publish from '../../Publish' 
+import Publish from '../../Publish';
 
     const data = [
     {
@@ -101,7 +101,6 @@ import Publish from '../../Publish'
           title: '操作',
           key: 'action',
           render: (_, record) => (
-            
             <Space size="middle">
               <Button type='primary' onClick={showModal}>编辑</Button>
               <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk}>
@@ -112,12 +111,9 @@ import Publish from '../../Publish'
                 description="确认要删除本条数据？"
                 onConfirm={() => showPopconfirm(record.key)}
               >
-                <Button danger >删除</Button>
+                <Button danger>删除</Button>
               </Popconfirm>
-              
-              
             </Space>
-            
           ),
         },
       ];
@@ -130,8 +126,16 @@ import Publish from '../../Publish'
         selectedRowKeys,
         onChange: onSelectChange,
       };
+      const add = () => {
+        
+      };
         return (
+          <>
+            <Space size='middle'>
+              <Button type="primary" onClick={add}>新增</Button>
+            </Space>
             <Table rowSelection={rowSelection} dataSource={dataSource} columns={columns} />
+          </>
         )
     }
 

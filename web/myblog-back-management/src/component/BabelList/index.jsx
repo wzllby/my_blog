@@ -1,4 +1,4 @@
-import { Table, Space, Button } from 'antd';
+import { Table, Space, Button, Form, Input, Modal } from 'antd';
 import { useState } from 'react';
 
     const dataSource = [
@@ -45,6 +45,7 @@ import { useState } from 'react';
   ];
     const App = () => {
       const [selectedRowKeys, setSelectedRowKeys] = useState([]);
+      const [isModalOpen, setIsModalOpen] = useState(false);
       const onSelectChange = (newSelectedRowKeys) => {
         console.log('selectedRowKeys changed: ', newSelectedRowKeys);
         setSelectedRowKeys(newSelectedRowKeys);
@@ -53,8 +54,33 @@ import { useState } from 'react';
         selectedRowKeys,
         onChange: onSelectChange,
       };
+      const showModal = () => {
+        setIsModalOpen(true);
+      };
+      // 发送请求添加标签
+      const handleOk = () => {
+        setIsModalOpen(false);
+      };
+
+      const handleCancel = () => {
+        setIsModalOpen(false);
+      };
+      
         return (
+          <>
+            <Space size='middle'>
+              <Button type="primary" onClick={showModal}>新增</Button>
+            </Space>
             <Table rowSelection={rowSelection} dataSource={dataSource} columns={columns} />
+            <Modal title="新增标签" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+              <Form>
+                <Form.Item label="标签名" name="labelname">
+                  <Input />
+                </Form.Item>
+              </Form>
+            </Modal>
+          </>
+            
         )
     }
 
