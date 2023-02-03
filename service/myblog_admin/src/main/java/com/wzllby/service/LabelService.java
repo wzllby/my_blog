@@ -7,4 +7,6 @@ import java.util.List;
 public interface LabelService {
 
     List<Label> queryAllLabels();
+
+    int addLabel(Label label);
 }

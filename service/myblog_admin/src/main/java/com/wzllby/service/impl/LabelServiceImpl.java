@@ -6,6 +6,7 @@ import com.wzllby.service.LabelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -22,4 +23,13 @@ public class LabelServiceImpl implements LabelService {
     public List<Label> queryAllLabels() {
         return labelMapper.queryAllLabels();
     }
+
+    @Override
+    public int addLabel(Label label) {
+        label.setState(0);
+        label.setCreateTime(new Date());
+        return labelMapper.addLabel(label);
+    }
+
+
 }

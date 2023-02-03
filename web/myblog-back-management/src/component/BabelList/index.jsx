@@ -1,21 +1,7 @@
 import { Table, Space, Button, Form, Input, Modal } from 'antd';
-import { useState } from 'react';
-
-    const dataSource = [
-    {
-      key: '1',
-      name: 'Java',
-      nums: '8',
-      create_time: '2023-1-15'
-    },
-    {
-      key: '2',
-      name: 'C++',
-      nums: '8',
-      create_time: '2023-1-15'
-    },
-  ];
-  
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+  let dataSource = [];
   const columns = [
     {
       title: '标签名',
@@ -44,8 +30,23 @@ import { useState } from 'react';
     },
   ];
     const App = () => {
+      
+      useEffect(() => {
+        dataSource = [];
+        initLabels();
+      })
       const [selectedRowKeys, setSelectedRowKeys] = useState([]);
       const [isModalOpen, setIsModalOpen] = useState(false);
+      const initLabels = () => {
+        axios.get('http://localhost:4558/label').then(e => {
+          const labels = e.data.data;
+          console.log(labels);
+          for (const label of labels) {
+            let obj = {key: label.id, name: label.labelName, nums: 0, create_time: label.createTime}
+            dataSource.push(obj)
+          }
+        })
+      }
       const onSelectChange = (newSelectedRowKeys) => {
         console.log('selectedRowKeys changed: ', newSelectedRowKeys);
         setSelectedRowKeys(newSelectedRowKeys);

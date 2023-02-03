@@ -3,14 +3,17 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wzllby.mapper.LabelMapper">
-    <select id="selectUser" resultType="com.wzllby.entity.Label">
+    <select id="queryAllLabels" resultType="com.wzllby.entity.Label">
         SELECT
-        user_name AS userName,
-        password AS passWord,
-        state
+        id,
+        label_name AS LabelName,
+        state,
+        create_time AS createTime
         FROM
-        db_label
-        WHERE
-        user_name = #{userName} AND password = #{passWord}
+        db_article_babel
     </select>
+
+    <insert id="addLabel" parameterType="com.wzllby.entity.Label">
+        insert into db_article_babel(label_name,state,create_time) values(#{LabelName}, #{state}, #{createTime})
+    </insert>
 </mapper>

@@ -13,4 +13,6 @@ import java.util.List;
 public interface LabelMapper {
 
     List<Label> queryAllLabels();
+
+    int addLabel(Label label);
 }

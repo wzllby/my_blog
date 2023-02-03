@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wzllby.mapper.ClassMapper">
+    <select id="queryAllClasses" resultType="com.wzllby.entity.ClassEntity">
+        SELECT
+        id,
+        class_name AS LabelName,
+        state,
+        create_time AS createTime
+        FROM
+        db_article_class
+    </select>
+</mapper>
