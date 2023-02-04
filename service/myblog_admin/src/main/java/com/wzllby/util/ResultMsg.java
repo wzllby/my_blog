@@ -2,6 +2,8 @@ package com.wzllby.util;
 
 import com.wzllby.constant.ResultMsgEnum;
 
+import java.util.Map;
+
 /**
  * @author wzllby
  * @date 2023年02月03日 21:37
@@ -11,26 +13,32 @@ public class ResultMsg {
 
     private String msg;
 
-    private Object data;
+    private Map<String, Object> data;
+
+    private Integer code;
 
     public ResultMsg(ResultMsgEnum resultMsgEnum) {
         this.resultMsgEnum = resultMsgEnum;
+        this.code = resultMsgEnum.getValue();
     }
 
     public ResultMsg(ResultMsgEnum resultMsgEnum, String msg) {
         this.resultMsgEnum = resultMsgEnum;
         this.msg = msg;
+        this.code = resultMsgEnum.getValue();
     }
 
-    public ResultMsg(ResultMsgEnum resultMsgEnum, Object data) {
+    public ResultMsg(ResultMsgEnum resultMsgEnum, Map<String, Object> data) {
         this.resultMsgEnum = resultMsgEnum;
         this.data = data;
+        this.code = resultMsgEnum.getValue();
     }
 
-    public ResultMsg(ResultMsgEnum resultMsgEnum, String msg, Object data) {
+    public ResultMsg(ResultMsgEnum resultMsgEnum, String msg, Map<String, Object> data) {
         this.resultMsgEnum = resultMsgEnum;
         this.msg = msg;
         this.data = data;
+        this.code = resultMsgEnum.getValue();
     }
 
     public ResultMsgEnum getResultMsgEnum() {
@@ -53,7 +61,15 @@ public class ResultMsg {
         return data;
     }
 
-    public void setData(Object data) {
+    public void setData(Map<String, Object> data) {
         this.data = data;
+    }
+
+    public Integer getCode() {
+        return code;
+    }
+
+    public void setCode(Integer code) {
+        this.code = code;
     }
 }

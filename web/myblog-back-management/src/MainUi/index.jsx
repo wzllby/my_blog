@@ -18,12 +18,16 @@ const App = () => {
     token: { colorBgContainer },
   } = theme.useToken();
   return (
-    <Layout hasSider
-    style={{
-      height:500
-    }}>
+    <Layout hasSider>
       <Sider
         breakpoint="lg"
+        style={{
+          overflow: 'auto',
+          height: '100vh',
+          left: 0,
+          top: 0,
+          bottom: 0,
+        }}
         // collapsedWidth="0"
         // onBreakpoint={(broken) => {
         //   console.log(broken);
@@ -74,15 +78,7 @@ const App = () => {
             margin: '24px 16px 0',
           }}
         >
-          <div
-            style={{
-              padding: 24,
-              minHeight: 360,
-              background: colorBgContainer,
-            }}
-          >
-         <Outlet></Outlet>
-          </div>
+           <Outlet></Outlet>
         </Content>
         <Footer
           style={{

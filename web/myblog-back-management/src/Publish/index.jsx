@@ -1,15 +1,9 @@
-// import ReactMarkdown from 'react-markdown'
-// import remarkGfm from 'remark-gfm'
-// import remarkMath from 'remark-math'
-// import rehypeKatex from 'rehype-katex'
 import { useState } from 'react'
+import { Space, Button} from 'antd';
 import Editor from 'for-editor'
 
 export default function Index() {
-    // {/* <ReactMarkdown
-    //         children={mdContent}
-    //         remarkPlugins={[remarkMath]}
-    //         rehypePlugins={[rehypeKatex]} /> */}
+
     const [mdContent, setMdContent] = useState("");
     const toolbar = {
         h1: true, // h1
@@ -33,9 +27,12 @@ export default function Index() {
     }
     return (
         <div>
-        
-        <Editor value={mdContent} onChange={handleChange} subfield={true} toolbar={toolbar} />
+            <Space>
+              <Button>提交</Button>
+              <Button>保存</Button>
+              <Button>放弃</Button>
+            </Space>
+            <Editor value={mdContent} onChange={handleChange} subfield={true} toolbar={toolbar} />
         </div>
-    
     )
   }

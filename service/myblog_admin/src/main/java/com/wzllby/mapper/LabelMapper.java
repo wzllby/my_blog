@@ -1,9 +1,10 @@
 package com.wzllby.mapper;
 
-import com.wzllby.entity.Label;
+import com.wzllby.entity.LabelEntity;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author wzllby
@@ -12,7 +13,13 @@ import java.util.List;
 @Mapper
 public interface LabelMapper {
 
-    List<Label> queryAllLabels();
+    List<LabelEntity> queryAllLabels();
 
-    int addLabel(Label label);
+    int addLabel(LabelEntity label);
+
+    int deleteLabel(int key);
+
+    int changeState(Map<String, Object> mpa);
+
+    LabelEntity getLabelById(int key);
 }

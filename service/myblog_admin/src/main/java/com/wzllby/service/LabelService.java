@@ -1,12 +1,16 @@
 package com.wzllby.service;
 
-import com.wzllby.entity.Label;
+import com.wzllby.entity.LabelEntity;
 
 import java.util.List;
 
 public interface LabelService {
 
-    List<Label> queryAllLabels();
+    List<LabelEntity> queryAllLabels();
 
-    int addLabel(Label label);
+    int addLabel(LabelEntity label);
+
+    int deleteLabel(int key);
+
+    int changeState(int key);
 }

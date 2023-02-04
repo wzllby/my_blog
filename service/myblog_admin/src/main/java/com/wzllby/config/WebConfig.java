@@ -8,8 +8,15 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @author wzllby
  * @date 2023年02月03日 23:41
  */
-@Configurable
+//@Configurable
 public class WebConfig implements WebMvcConfigurer {
+    /**
+     * 这种方式解决跨域为什么不生效？
+     *
+     * @author wzllby
+     * @date 2023-02-04 12:09
+     * @param registry
+     */
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")

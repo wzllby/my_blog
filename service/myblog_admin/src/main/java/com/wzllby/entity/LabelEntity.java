@@ -6,11 +6,11 @@ import java.util.Date;
  * @author wzllby
  * @date 2023年02月03日 0:05
  */
-public class Label {
+public class LabelEntity {
 
     private Integer id;
 
-    private String LabelName;
+    private String labelName;
 
     private Date createTime;
 
@@ -25,11 +25,11 @@ public class Label {
     }
 
     public String getLabelName() {
-        return LabelName;
+        return labelName;
     }
 
     public void setLabelName(String labelName) {
-        LabelName = labelName;
+        this.labelName = labelName;
     }
 
     public Date getCreateTime() {
